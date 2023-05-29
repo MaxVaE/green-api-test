@@ -1,0 +1,39 @@
+.home {
+  width: 100%;
+  height: 100%;
+}
+
+.home__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  box-shadow: 0 6px 18px $shadow-c;
+  background-color: $white-c;
+
+  &::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 127px;
+    background-color: #00a884;
+  }
+
+  @include min-size($desktop-width) {
+    margin-top: 19px;
+    margin-left: 19px;
+    width: calc(100% - 38px);
+    height: calc(100% - 38px);
+  }
+
+  @include min-size(1600px) {
+    margin: 19px auto;
+    width: 100%;
+    height: calc(100% - 38px);
+  }
+}

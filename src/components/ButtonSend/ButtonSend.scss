@@ -1,0 +1,14 @@
+.button-send {
+  margin: 5px 8px;
+  border-radius: 0;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  box-shadow: none;
+  background-color: transparent;
+  transition: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}

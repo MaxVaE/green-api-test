@@ -1,0 +1,17 @@
+@import "./variables";
+@import "./mixin";
+@import "./global";
+
+// components
+@import "../components/Input/Input";
+@import "../components/Button/Button";
+@import "../components/ButtonSend/ButtonSend";
+@import "../components/Avatar/Avatar";
+@import "../components/Home/Home";
+@import "../components/Chat/Chat";
+@import "../components/Authorization/Authorization";
+@import "../components/CreateChat/CreateChat";
+@import "../components/Message/Message";
+@import "../components/Exit/Exit";
+@import "../components/Message/InterlocutorMessage/InterlocutorMessage";
+@import "../components/Message/MyMessage/MyMessage";

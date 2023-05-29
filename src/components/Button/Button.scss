@@ -1,0 +1,16 @@
+.button {
+  border: none;
+  border-radius: 12px;
+  padding: 0 40px;
+  width: 150px;
+  height: 40px;
+  box-shadow: 0 0 4px $shadow-c;
+  color: $white-c;
+  background-color: #4cae4f;
+  cursor: pointer;
+  transition: background-color 0.8s;
+
+  &:hover {
+    background-color: #009805;
+  }
+}

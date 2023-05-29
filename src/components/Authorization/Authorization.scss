@@ -1,0 +1,17 @@
+.authorization {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  width: 500px;
+}
+
+.authorization__input {
+  margin-bottom: 14px;
+}
+
+.authorization__error {
+  margin-top: 4px;
+  font-size: 14px;
+  color: $error-c;
+}

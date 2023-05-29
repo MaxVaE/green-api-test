@@ -1,0 +1,27 @@
+.message {
+  display: flex;
+  padding: 0 63px;
+  width: max-content;
+}
+
+.message__text {
+  color: #111b21;
+}
+
+.message__time-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-right: 4px;
+  padding-left: 8px;
+  width: 33px;
+  height: 100%;
+}
+
+.message__time {
+  position: absolute;
+  bottom: 2px;
+  font-size: 0.6875rem;
+  white-space: nowrap;
+  color: #667781;
+}

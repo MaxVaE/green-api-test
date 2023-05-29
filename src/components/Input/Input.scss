@@ -1,0 +1,17 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.input {
+  outline: none;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.error {
+  margin-top: 4px;
+  font-size: 14px;
+  color: $error-c;
+}
