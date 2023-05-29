@@ -6,7 +6,6 @@ import { observer } from 'mobx-react-lite'
 import { Input } from '../Input'
 import { ROUTES } from '../../utils/constants'
 import { Button } from '../Button'
-import { useAuthorization } from '../../hooks/useAuthorization'
 import { getStateInstanceQuery } from '../../api/queries'
 import { storeContext } from '../../store'
 
@@ -18,20 +17,19 @@ export const Authorization = observer(() => {
   const [authorizationError, setAuthorizationError] = useState<string>('')
 
   const navigate = useNavigate()
-  const { authorizationStatus, setAuthorizationStatus } = useAuthorization()
   const store = useContext(storeContext)
 
   useEffect(() => {
-    if (authorizationStatus === 'fulfilled') {
+    if (store.authorizationStatus === 'fulfilled') {
       navigate(ROUTES.home)
     }
-  }, [authorizationStatus])
+  }, [store.authorizationStatus])
 
   const handleClick = async () => {
     const errorMessage = 'Заполните поле'
 
     try {
-      setAuthorizationStatus('pending')
+      store.authorizationStatus = 'pending'
 
       setIdError('')
       setTokenError('')
@@ -56,9 +54,11 @@ export const Authorization = observer(() => {
       store.id = id
       store.token = token
 
+      store.authorizationStatus = 'fulfilled'
+
       navigate(ROUTES.home)
     } catch (error) {
-      setAuthorizationStatus('failed')
+      store.authorizationStatus = 'failed'
 
       if (typeof error === 'string') {
         setAuthorizationError(error)
@@ -94,7 +94,7 @@ export const Authorization = observer(() => {
         onKeyDown={handleKeyDown}
       />
 
-      <Button onClick={handleClick} loading={authorizationStatus === 'pending'}>Вход</Button>
+      <Button onClick={handleClick} loading={store.authorizationStatus === 'pending'}>Вход</Button>
       <span className="authorization__error">{authorizationError}</span>
     </div>
   )

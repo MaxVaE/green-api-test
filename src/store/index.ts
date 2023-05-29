@@ -5,6 +5,8 @@ import {
 } from '../utils/localStorage'
 
 export class Store {
+  private _authorizationStatus: Status = 'idle'
+
   private _id = getIdLS() ?? ''
 
   private _token = getTokenLS() ?? ''
@@ -15,6 +17,16 @@ export class Store {
 
   constructor() {
     makeAutoObservable(this)
+
+    this.checkAuthorizationStatus()
+  }
+
+  public get authorizationStatus() {
+    return this._authorizationStatus
+  }
+
+  public set authorizationStatus(authorizationStatus: Status) {
+    this._authorizationStatus = authorizationStatus
   }
 
   public get id() {
@@ -57,6 +69,14 @@ export class Store {
       ...this._messages,
       message,
     ]
+  }
+
+  public checkAuthorizationStatus() {
+    if (this._token && this._id) {
+      this._authorizationStatus = 'fulfilled'
+    } else {
+      this._authorizationStatus = 'failed'
+    }
   }
 }
 
